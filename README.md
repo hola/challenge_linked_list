@@ -16,7 +16,7 @@ Now that the contest is over, we're publishing all the solutions we received, an
 
 The problem statement above is somewhat vague, and that's intentional. We all know how often it takes some effort to understand the requirements, which are rarely as precisely specified in real life as they are in typical student assignments.
 
-The first question one might have is: what are those “idle item” mentioned in the problem statement? If one explores the GitHub link above, one can see that the original linked list implementation is part of the Node.js source code, and is used internally to track timer callbacks (specifically, “idle” ones). Due to the specifics of that particular algorithm, an item can only be a member of at most one list at any given moment. What the challenge asks for is a general implementation, where a single item can simultaneously participate in many lists.
+The first question one might have is: what are those “idle item” mentioned in the problem statement? If one explores the GitHub link above, one can see that the original linked list implementation is part of the Node.js source code, and is used internally to track timer callbacks (specifically, “idle” ones). Due to the specifics of that particular algorithm, an item can only be a member of at most one list at any given moment. What the challenge asks for is a general implementation, where a single item can simultaneously participate in many listss, and a single list parent can hold simultaneously many different lists.
 
 Because understanding the requirements is so important, we gave participants **128 points** for getting it right.
 
