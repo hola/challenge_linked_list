@@ -1,0 +1,18 @@
+{
+  "name": "linklist",
+  "version": "0.0.1",
+  "description": "linked list for hola",
+  "main": "linked_list.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "benchmark": "1.0.0",
+    "microtime": "*"
+  },
+  "author": "Max Melentiev",
+  "license": "MIT"
+}

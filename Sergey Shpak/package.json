@@ -1,0 +1,17 @@
+{
+  "name": "generic-link-list",
+  "version": "0.0.1",
+  "main": "challenge.js",
+  "dependencies": {
+    "benchmark": "~1.0.0",
+    "heapdump": "~0.3.6"
+  },
+  "readmeFilename": "README.md",
+  "description": "The challenge: generalize NodeJS's linklist, http://hola.org/challenge_js?l",
+  "author": {
+    "name": "Sergey Shpak",
+    "email": "sergey.shpak.web@gmail.com"
+  },
+  "license": "MIT",
+  "repository": ""
+}

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Javascript Generic List Implementation</title>
+
+    <script type="text/javascript" src="GenericList.js"></script>
+
+    <script type="text/javascript">
+
+        function Car(make, model)
+        {
+            this.make = make;
+            this.model = model;
+        }
+
+        function init()
+        {
+            try
+            {
+                var myList = new List();
+                myList.Add(new Car("Honda", "Civic"));
+                myList.Add(new Car("Nissan", "Sentra"));
+                myList.Add(new Car("Honda", "Cr-V"));
+                myList.Add(new Car("Honda", "Cr-V"));
+
+                var selList = myList.Where("make == 'Honda'").OrderByDescending("model").Distinct();
+                ///Both of these calls are equivalent
+                var anotherList = myList.Where(function () { return this.make === 'Honda' });
+                var yetAnotherList = myList.Where(function (c) { return c.make === 'Honda' });
+
+
+                var outputString = '';
+                for (var index = 0; index < selList.Count(); index++)
+                    outputString += selList.ElementAt(index).model + '\r\n';
+
+                var outputElement = document.getElementById('output');
+                if (outputElement) {
+                    outputElement.innerText = outputString;
+                    outputElement.innerText += '\r\n Total Elements in selList: ' + selList.Count();
+                    outputElement.innerText += '\r\n Total Elements in anotherList: ' + anotherList.Count();
+                    outputElement.innerText += '\r\n Total Elements in yetAnotherList: ' + yetAnotherList.Count();                    
+                }
+            }
+            catch(ex)
+            {
+                alert('The following error occurred: ' + ex);
+            }
+        }
+    
+    </script>
+
+</head>
+<body onload="init()">
+    <h1 id="output" runat="server" />
+</body>
+</html>

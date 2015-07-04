@@ -1,0 +1,27 @@
+There are three implementations of linked list:
+
+- First I've made OOP implementation (linked_list file).
+It was good enough, but a little bit slower than original _linklist.
+It's interface differs from original and there are methods
+for compatibility. There is #push method, it only works with elements that
+don't belong to list yet. It's performance is same as original #append (sometimes
+slightly slower). Fully compatible #append method is 3-4 times slower than
+original.
+This is my final implementation. After it I've made some tries but they weren't faster.
+
+- Then I've made implementation (linked_list_harmony file) using WeakMap
+(for ECMAScript 2015 mode), but it was much slower than original.
+
+- Then I've tried procedural style (linked_list_proc file), but it is also
+not so fast.
+
+
+Code is written in CoffeeScript, compiled files are also included.
+
+To run benchmarks:
+
+- Install benchmark.js with:
+  $ npm install
+
+- Run benchmark with:
+  $ node benchmark/linked_list.js

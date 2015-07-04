@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Link List Test</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.17/require.min.js"></script>
+	<script>
+	require(["Scripts/tester", "Scripts/generic_linklist", "Scripts/_linklist"], function(tester, generic, normal)
+	{
+		document.getElementById("NormalR").innerHTML = tester.testRegular(normal);
+		document.getElementById("GenericR").innerHTML = tester.testRegular(generic);
+		document.getElementById("GenericG").innerHTML = tester.testGeneric(generic);
+	});
+	</script>
+	<style>
+		span { color: red; }
+	</style>
+</head>
+<body>
+	<h3>Operations on regular items</h3>
+	<div>Normal implementation (ms.): <span id="NormalR">??</span></div>
+	<div>Generic implementation (ms.): <span id="GenericR">??</span></div>
+	
+	<h3>Operations on list items</h3>
+	<div>Normal implementation (ms.): <span>NOT SUPPORTED</span></div>
+	<div>Generic implementation (ms.): <span id="GenericG">??</span></div>
+</body>
+</html>

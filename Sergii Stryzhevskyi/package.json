@@ -1,0 +1,16 @@
+{
+  "name": "hola-linkedlist",
+  "version": "1.0.0",
+  "description": "Hola’s Spring JS Competition",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js",
+    "start" : "node test.js && node index.js && node index2.js"
+  },
+  "author": "Serhei Stryzhevskyi <https://github.com/Stryzhevskyi>",
+  "license": "ISC",
+  "dependencies": {
+    "benchmark": "^1.0.0",
+    "microtime": "^1.4.2"
+  }
+}

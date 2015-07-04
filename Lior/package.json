@@ -1,0 +1,18 @@
+{
+  "name": "linklist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "__linklist.js",
+  "scripts": {
+    "test": "jasmine-node spec",
+    "perf": "node perf/_linklist.test.js; node perf/__linklist.test.js"
+  },
+  "author": "treeskar@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "benchmark": "^1.0.0",
+    "microtime": "^1.4.2",
+    "jasmine": "^2.3.1",
+    "jasmine-node": "^1.14.5"
+  }
+}

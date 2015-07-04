@@ -1,0 +1,10 @@
+{
+  "name": "BlinkedList",
+  "description": "The fastest linked list implementation for NodeJS",
+  "author": "Mateusz Krzeszowiak <mateusz.krzeszowiak@gmail.com>",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "benchmark": "~1"
+  }
+}

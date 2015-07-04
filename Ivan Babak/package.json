@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "node-linklist",
+  "version": "0.0.1",
+  "description": "http://hola.org/challenge_js?l",
+  "main": "lib/linklist.js",
+  "scripts": {
+    "start": "node comparison.js"
+  },
+  "author": "sompylasar <babak.john@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "benchmark": "^1.0.0"
+  }
+}

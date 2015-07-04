@@ -1,0 +1,16 @@
+{
+  "name": "horowod",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine",
+    "benchmark": "node benchmark.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "benchmark": "^1.0.0",
+    "jasmine": "^2.3.1"
+  }
+}

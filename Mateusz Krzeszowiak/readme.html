@@ -1,0 +1,164 @@
+<style>
+    /**
+     * Via https://github.com/jasonm23/markdown-css-themes
+     */
+    body{font-family:Helvetica,arial,sans-serif;font-size:14px;line-height:1.6;background-color:#fff;padding:30px}body>:first-child{margin-top:0!important}body>:last-child{margin-bottom:0!important}a{color:#4183C4}a.absent{color:#c00}a.anchor{display:block;padding-left:30px;margin-left:-30px;cursor:pointer;position:absolute;top:0;left:0;bottom:0}h1,h2,h3,h4,h5,h6{margin:20px 0 10px;padding:0;font-weight:700;-webkit-font-smoothing:antialiased;cursor:text;position:relative}h1:hover a.anchor,h2:hover a.anchor,h3:hover a.anchor,h4:hover a.anchor,h5:hover a.anchor,h6:hover a.anchor{text-decoration:none}h1 code,h1 tt,h2 code,h2 tt,h3 code,h3 tt,h4 code,h4 tt,h5 code,h5 tt,h6 code,h6 tt{font-size:inherit}h1{font-size:28px;color:#000}h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}h3{font-size:18px}h4{font-size:16px}h5{font-size:14px}h6{color:#777;font-size:14px}blockquote,dl,li,ol,p,pre,table,ul{margin:15px 0}hr{border:0;color:#ccc;height:4px;padding:0}a:first-child h1,a:first-child h2,a:first-child h3,a:first-child h4,a:first-child h5,a:first-child h6,body>h1:first-child,body>h1:first-child+h2,body>h2:first-child,body>h3:first-child,body>h4:first-child,body>h5:first-child,body>h6:first-child{margin-top:0;padding-top:0}h1 p,h2 p,h3 p,h4 p,h5 p,h6 p{margin-top:0}li p.first{display:inline-block}li{margin:0}ol,ul{padding-left:30px}ol :first-child,ul :first-child{margin-top:0}dl{padding:0}dl dt{font-size:14px;font-weight:700;font-style:italic;padding:0;margin:15px 0 5px}dl dt:first-child{padding:0}dl dt>:first-child{margin-top:0}dl dt>:last-child{margin-bottom:0}dl dd{margin:0 0 15px;padding:0 15px}dl dd>:first-child{margin-top:0}dl dd>:last-child{margin-bottom:0}blockquote{border-left:4px solid #ddd;padding:0 15px;color:#777}blockquote>:first-child{margin-top:0}blockquote>:last-child{margin-bottom:0}table{padding:0;border-collapse:collapse}table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700;border:1px solid #ccc;margin:0;padding:6px 13px}table tr td{border:1px solid #ccc;margin:0;padding:6px 13px}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td :last-child,table tr th :last-child{margin-bottom:0}img{display:block;max-width:100%;margin:0 auto}span.frame{display:block;overflow:hidden}span.frame>span{border:1px solid #ddd;display:block;float:left;overflow:hidden;margin:13px 0 0;padding:7px;width:auto}span.frame span img{display:block;float:left}span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}span.align-center{display:block;overflow:hidden;clear:both}span.align-center>span{display:block;overflow:hidden;margin:13px auto 0;text-align:center}span.align-center span img{margin:0 auto;text-align:center}span.align-right{display:block;overflow:hidden;clear:both}span.align-right>span{display:block;overflow:hidden;margin:13px 0 0;text-align:right}span.align-right span img{margin:0;text-align:right}span.float-left{display:block;margin-right:13px;overflow:hidden;float:left}span.float-left span{margin:13px 0 0}span.float-right{display:block;margin-left:13px;overflow:hidden;float:right}span.float-right>span{display:block;overflow:hidden;margin:13px auto 0;text-align:right}code,tt{margin:0 2px;padding:0 5px;white-space:nowrap;border:1px solid #eaeaea;background-color:#f8f8f8;border-radius:3px}pre code{margin:0;padding:0;white-space:pre;background:0 0}.highlight pre,pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}pre code,pre tt{background-color:transparent;border:none}sup{font-size:.83em;vertical-align:super;line-height:0}*{-webkit-print-color-adjust:exact}@media screen and (min-width:914px){body{width:854px;margin:0 auto}}@media print{pre,table{page-break-inside:avoid}pre{word-wrap:break-word}}
+</style>
+
+<h1 id="remote-developers-challange-blinkedlist">Remote Developers challange - BlinkedList</h1>
+
+
+
+<h2 id="overview">Overview</h2>
+
+<p>This is the more performant and more generic implementation then the one that is build in NodeJs. <br>
+    BlinkedList tries to provide the best speed possible while
+    maintaining wide interface, which allows structures like queues and
+    stacks to be built on top of it.</p>
+
+
+
+<h2 id="challanges">Challenges</h2>
+
+
+
+<h3 id="in-general">In general</h3>
+
+<p><a href="https://en.wikipedia.org/wiki/Linked_list#Linked_lists_vs._dynamic_arrays">The general idea</a>
+    of linked lists is that while slow at random access, they are much more
+    efficient at inserting and deleting items than dynamic arrays. <strong>But how does it apply to NodeJs' V8?</strong> Well, if you look at the benchmarks below you can see that this is not exactly true, especially for small amounts of data.  </p>
+
+
+
+<h3 id="wikipedia-lies">Wikipedia lies?</h3>
+
+<p>No, it doesn't. Arrays are probably the most used structures in JS, so it's no surprise that developers behind <em>every</em>
+    JS engine put a lot of effort into optimizing everything they can around
+    these containers. The only thing we have to remember is that if we want
+    to achieve the highest speeds possible, we have to keep our arrays
+    dense, this means no <em>holes</em> between our indexes. You may ask then</p>
+
+
+
+<h3 id="why-not-just-use-an-array">Why not just use an array?</h3>
+
+<p>This is actually a good idea, except one issue. We still have to
+    reduce time needed for deleting elements that are clearly visible in FIFO
+    and LIFO benchmarks, where we add and remove elements frequently. And
+    this is where it gets interesting</p>
+
+
+
+<h2 id="put-a-ring-on-it">Put a ring on it!</h2>
+
+<p>To achieve this I used virtual structure called <a href="https://en.wikipedia.org/wiki/Circular_buffer">circular buffer</a>. <br>
+    In our array approach it means that index of the first element is not always <code>0</code>
+    and can even be higher than the index of the last one. This allows me
+    to rapidly remove elements from the beginning and the end of the array
+    without making V8 to reallocate memory. The only trade-of is a little
+    higher memory consumption, because instead of actually deleting
+    elements, we set them as <code>undefined</code>.</p>
+
+
+
+<h3 id="how-does-it-work">How does it work?</h3>
+
+<p>Lets say we have a <code>BlinkedList</code> with four elements that looks in memory as follows:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs smalltalk"><span class="hljs-localvars">|a|b|c|d|</span>
+    |<span class="hljs-number">0</span>|<span class="hljs-number">1</span>|<span class="hljs-number">2</span>|<span class="hljs-number">3</span>|
+    ^</code></pre>
+
+<p>Our first element is tagged with an arrow. Now lets <code>shift()</code> the first element:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs smalltalk">| <span class="hljs-localvars">|b|c|d|</span>
+    |<span class="hljs-number">0</span>|<span class="hljs-number">1</span>|<span class="hljs-number">2</span>|<span class="hljs-number">3</span>|
+    ^</code></pre>
+
+<p>As you can see, we didn't remove the first element, we just marked it
+    as empty and moved the front pointer. Normally V8 would could remove the
+    element from memory and recalculate the contents which is relatively
+    time expensive. <br>
+    Now lets <code>push()</code> an element to the end of the container:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs smalltalk"><span class="hljs-localvars">|e|b|c|d|</span>
+    |<span class="hljs-number">0</span>|<span class="hljs-number">1</span>|<span class="hljs-number">2</span>|<span class="hljs-number">3</span>|
+    ^</code></pre>
+
+<p>Again, no expensive memory reallocation, in this simple two step example we avoided two costly operations(yay!).</p>
+
+
+
+<h2 id="any-complications">Any complications?</h2>
+
+<p>Using circular buffer requires some calculations, especially, when
+    accessing certain indexes as those can be higher than actual container
+    size. There are two things connected with this issue: <code>BlinkedList</code> keeps track of its <code>_capacity</code> property which tells how big <em>the ring</em> is and because we'll have to do a lot of modulo operations the capacity is always the power of <code>2</code> to speed it up with bitwise replacement.</p>
+
+
+
+<h2 id="benchmarks">Benchmarks</h2>
+
+<p>These are some benchmarks using:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs asciidoc">Windows 8.1
+    AMD FX 6300 3.79GHz
+    8GB RAM
+    --------------------
+    node@v0.12.2
+    benchmark.js@1.0.0</code></pre>
+<p>To run benchmarks please run <code>npm install</code> inside project directory.</p>
+
+
+<h4 id="filling-container-with-elements">Filling container with elements</h4>
+
+<p><img src="benchmark/filling.png" alt="Filling container with elements" title=""> <br>
+    Node's LinkList is the slowest, BlinkedList is faster, but a little
+    slower than array, because of some calculations and API overhead.</p>
+
+
+
+<h4 id="iterating-over-container">Iterating over container</h4>
+
+<p><img src="benchmark/iterating.png" alt="Iterating over container" title=""> <br>
+    Again, array is the fastest. This time BlinkedList iterator is a
+    little slower than LinkList, but on the other hand it's a lot faster
+    when using its <code>get()</code> method. <strong>It's important to note that LinkList doesn't provide proper API for iterating over container without removing its elements.</strong></p>
+
+
+
+<h4 id="random-element-access">Random element access</h4>
+
+<p><img src="benchmark/random.png" alt="enter image description here" title=""> <br>
+    Unsurprisingly, Array and BlinkedList are way faster than Node's LinkList.</p>
+
+
+
+<h4 id="using-container-as-fifoqueue">Using container as FIFO(queue)</h4>
+
+<p><img src="benchmark/fifo.png" alt="Container as FIFO" title=""> <br>
+    This and next benchmarks show really well what lists are made for.
+    This time both are faster than array because of frequent removing and adding elements. BlinkedList is the fastest.</p>
+
+
+
+<h4 id="using-container-as-lifostack">Using container as LIFO(stack)</h4>
+
+<p><img src="benchmark/lifo.png" alt="Container as LIFO" title=""> <br>
+    No proper API from Node's LinkList. BlinkedList is faster than array.</p>
+
+
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The main goal - better performance than Node's LinkList - was successfully achieved with great results. <br>
+    BlinkedList provides outstanding performance, especially when working with big amounts of data. <br>
+    Future roadmap could include better unit tests and wider banchmarking.</p></body></html>

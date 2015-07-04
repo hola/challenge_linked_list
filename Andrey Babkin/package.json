@@ -1,0 +1,14 @@
+{
+    "name": "linklist",
+    "description": "link list challenge",
+    "private": "true",
+    "license": "proprietary",
+    "author": {
+        "name": "Andrew Babkin",
+        "email": "ab@izh.com"    
+    },
+    "scripts": {
+        "test": "node ./test.js",
+        "start": "node ./test.js"
+    }
+}

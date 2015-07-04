@@ -1,0 +1,31 @@
+{
+  "name": "hola-linklist",
+  "version": "0.0.0",
+  "author": "Efremov Alexey lexich121@gmail.com",
+  "description": "",
+  "repository": "",
+  "scripts": {
+    "test": "npm run jscs && npm run eslint && npm run mocha",
+    "jscs": "node_modules/.bin/jscs test.js index.js benchmark.js",
+    "eslint": "node_modules/.bin/eslint test.js index.js benchmark.js",
+    "mocha": "node_modules/.bin/mocha test.js && ORIGINAL=1 node_modules/.bin/mocha test.js",
+    "benchmark": "node benchmark.js",
+    "precommit": "npm test",
+    "prepush": "npm test",
+    "postmerge": "npm install"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^3.1.18",
+    "benchmark": "^1.0.0",
+    "chai": "^3.0.0",
+    "eslint": "^0.23.0",
+    "eslint-config-airbnb": "0.0.6",
+    "husky": "^0.8.1",
+    "jscs": "^1.13.1",
+    "mocha": "^2.2.5"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  }
+}

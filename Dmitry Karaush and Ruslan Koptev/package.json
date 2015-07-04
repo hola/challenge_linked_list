@@ -1,0 +1,14 @@
+{
+  "name": "ll-just",
+  "version": "1.0.0",
+  "description": "Linkedlist implementation for holajs challenge",
+  "main": "ll.js",
+  "scripts": {
+    "startbench": "node bench.js"
+  },
+  "author": "Just",
+  "license": "ISC",
+  "dependencies": {
+    "benchmark": "~1.x"
+  }
+}
