@@ -98,7 +98,7 @@ Place | Name                                  | Score
    25 | Priel Hakak                           | 109
    27 | Alex                                  | 105
    27 | Mark Ablovacky                        | 105
-   27 | Tehila Korlanski                      | 105
+   27 | Tehila                                | 105
    30 | Ilya Sonin                            |  97
    31 | Alexey Efremov                        |  77
 
