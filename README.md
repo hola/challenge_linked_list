@@ -71,7 +71,7 @@ Because of the particular properties of the scoring system, it should be trivial
 Place | Name                                  | Score
 -----:|---------------------------------------|-----:
     1 | Sergey Shpak (solution #1)            | 255
-    2 | Ori Shalev                            | 254
+    2 | Ori Shalev[1]                         | 254
     3 | Alexander Lyakshev                    | 253
     4 | Vasiliy Kostin (“templated” solution) | 252
     5 | Almaz Mubinov                         | 249
@@ -101,6 +101,8 @@ Place | Name                                  | Score
    27 | Tehila                                | 105
    30 | Ilya Sonin                            |  97
    31 | Alexey Efremov                        |  77
+
+[1] We appreciate the originality of Ori Shalev's solution. He devised a hack to extract the source code of _linklist.js from the running Node interpreter (it's an internal module that comes built into the Node binary). His code then patches the extracted source and compiles it as a module. This makes his solution very compact, albeit specific to Node.js.
 
 ## Prizes
 
