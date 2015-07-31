@@ -263,7 +263,7 @@ int main()
 }
 ```
 
-We weren't sure whether to be more baffled by the choice of language, or by what the code does.
+We weren't sure whether to be more baffled by the choice of language, or by what the code does. In any case, we appreciate the inclusion of unit tests!
 
 ## Stay tuned
 
