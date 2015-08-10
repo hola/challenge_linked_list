@@ -107,10 +107,10 @@ and its performance compared to Sergey Shpak's solution.
 Ori devised a hack to extract the source code of _linklist.js from the running Node interpreter (it's an internal module that comes built into the Node binary). His code then patches the extracted source and compiles it as a module. This makes his solution very compact, albeit specific to Node.js.
 
 Ori's solution's storng points:
-- nice trick to include file: makes the solution compact.
-- no additional item memory: Sergey's solution allocates for every item an additional `new Item` object, which requires more memory, and slows performance of item creation.
-- no additional item indirection: item next/prev access is via `item.next` and `item.prev`, vs Sergey's solution `item.key.next` and `item.key.prev` which slows performance of item iteration.
-- drop-in replacement: the API is backwards compatible to existing code, which makes it easy to integrate the new implementation in the existing nodejs codebase.
+* nice trick to include file: makes the solution compact.
+* no additional item memory: Sergey's solution allocates for every item an additional `new Item` object, which requires more memory, and slows performance of item creation.
+* no additional item indirection: item next/prev access is via `item.next` and `item.prev`, vs Sergey's solution `item.key.next` and `item.key.prev` which slows performance of item iteration.
+* drop-in replacement: the API is backwards compatible to existing code, which makes it easy to integrate the new implementation in the existing nodejs codebase.
 
 So after additional review, we decided to update Ori's solution to share the first place with Sergey!
 
