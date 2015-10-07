@@ -185,7 +185,7 @@ Here is some examples of solutions:
 3. Array of nodes with indexes          -   Good for known number of nodes .
 *Disadvantage* - slow relocating
 
-So there is no task for "challange coding" in your conditions. Just learning and
+So there is no task for "challenge coding" in your conditions. Just learning and
 using _well known and tested alghoritms_ according to your needs.
 The competition may be won by some "benchmark" but anyway it will not be
 "generic linked-list", and , for shure,  fail another benchmark. There is no
