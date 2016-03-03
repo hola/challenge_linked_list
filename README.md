@@ -1,6 +1,6 @@
 # Hola Spring JS Competition Results
 
-In spring 2015, we held a [programming contest](http://hola.org/challenge_js). Thanks to all who participated!
+In spring 2015, we held a [programming contest](challenge.md). Thanks to all who participated!
 
 Just to remind you, here are its rules:
 
