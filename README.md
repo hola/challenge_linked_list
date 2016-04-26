@@ -1,4 +1,4 @@
-# Hola Spring JS Competition Results
+# <img src=https://hola.org/img/hola_clean.png> Hola Spring JS Competition Results
 
 In spring 2015, we held a [programming contest](challenge.md). Thanks to all who participated!
 
